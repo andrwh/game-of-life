@@ -1,0 +1,62 @@
+====
+xxx
+xox
+oox
+====
+(x,y)
+
+====
+xox
+xox
+oxo
+====
+
+neighbourOffsets = [[1,0], [1,1], [0,1], [-1,1], [-1,0], [-1,-1], [0,-1], [1,-1]]
+
+grid = [ 'xxx', 'xox', 'oox']
+
+getNeighbourCoordinates(cell (array))]
+    use neighbourOffsets
+    return arrayOfNeighbourCoordinates
+
+getValueOfCell(cell (array), grid (2d array))
+    return value
+
+deadOrAlive(cell (array), grid (2d array))
+    aliveNeighbours = 0
+
+    getNeighbours
+    loop over neighbours
+        getValueOfCell(neighbourCell)
+        if value alive
+            aliveNeighbours + 1
+
+    use current cell to determine if it lives on
+        if alive
+            return false if aliveNeighbours < 2
+            return true if aliveNeighbours >= 2 && <= 3
+            return false if > 3
+        else if dead
+            return true if aliveNeighbours == 3
+            return false
+
+calculateNextState(grid)
+    make a copy of current as nextGrid
+
+    loop over grid
+    get value of each cell
+    get its neighbours
+    calculate if its dead or alive
+    update nextGrid with cell value
+
+    return nextGrid
+
+breed(grid)
+    set a timeout for
+        calculate next state of grid
+        print grid
+        if not isOver(grid)
+            run breed
+
+isOver(grid)
+    return true/false
